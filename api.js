@@ -121,7 +121,7 @@ class CernionAPI {
       var raw = localStorage.getItem(CERNION_CONFIG_KEY);
       if (raw) return JSON.parse(raw);
     } catch (e) {}
-    return { baseUrl: 'http://10.0.0.8:3900/api', tenantId: 'agentic-hackathon', token: '' };
+    return { baseUrl: 'https://api.cernion.de/', tenantId: 'agentic-hackathon', token: '' };
   }
   saveConfig(cfg) {
     for (var k in cfg) this.config[k] = cfg[k];
