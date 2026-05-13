@@ -147,11 +147,11 @@ class CernionAPI {
     } catch (e) { e.isCORS = e.message.indexOf('Failed') >= 0; throw e; }
   }
   async listMelos() {
-    try { return await this.get('/edm/melos'); }
+    try { return await this.get('api/edm/melos'); }
     catch (e) { return { rows: DEMO_MELos }; }
   }
   async getTimeseries(meloId, obis, from, to) {
-    try { return await this.get('/edm/timeseries/' + meloId + '?obis=' + obis + '&from=' + from + '&to=' + to); }
+    try { return await this.get('api/edm/timeseries/' + meloId + '?obis=' + obis + '&from=' + from + '&to=' + to); }
     catch (e) {
       var vals = (DEMO_TIMESERIES[meloId] || []).map(function(v) { return v.value; });
       return { success: true, meloId: meloId, values: DEMO_TIMESERIES[meloId] || [],
