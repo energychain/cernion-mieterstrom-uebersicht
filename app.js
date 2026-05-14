@@ -50,7 +50,7 @@ function setupTabs() {
 function loadDashboard() {
   showLoading(true);
   api.listMelos().then(function(melos) {
-    renderDashboard(melos.rows || []);
+    renderDashboard(melos.data || melos.rows || []);
     renderMieterstromChart();
     showLoading(false);
   }).catch(function(e) {
